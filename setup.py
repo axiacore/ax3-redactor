@@ -1,6 +1,6 @@
 import setuptools
 
-__VERSION__ = '1.0.2'
+__VERSION__ = '1.0.3'
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -15,7 +15,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Axiacore/ax3-redactor",
     packages=setuptools.find_packages(),
-    install_requires=['ax3-model-extras', 'python-magic'],
+    install_requires=['ax3-model-extras==1.1.4', 'python-magic==0.4.15'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
