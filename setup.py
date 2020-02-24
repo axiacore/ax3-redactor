@@ -1,21 +1,21 @@
 import setuptools
 
-__VERSION__ = '1.0.5'
+__VERSION__ = '1.0.6'
 
-with open("README.md", "r") as fh:
+with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="ax3-redactor",
+    name='ax3-redactor',
     version=__VERSION__,
-    author="Axiacore",
-    author_email="info@axiacore.com",
-    description="A Django app to add support for redactor",
+    author='Axiacore',
+    author_email='info@axiacore.com',
+    description='A Django app to add support for redactor',
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/Axiacore/ax3-redactor",
+    long_description_content_type='text/markdown',
+    url='https://github.com/Axiacore/ax3-redactor',
     packages=setuptools.find_packages(),
-    install_requires=['ax3-model-extras>=1.1.5', 'python-magic>=0.4.15'],
+    install_requires=['ax3-model-extras>=1.2.0', 'python-magic>=0.4.15'],
     include_package_data=True,
     zip_safe=False,  # because we're including static files
     classifiers=[
