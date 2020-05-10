@@ -16,5 +16,6 @@ class RedactorMixin:
             'vendor/redactor/redactor.min.js',
             'vendor/redactor/plugins/imagemanager.min.js',
             'vendor/redactor/plugins/video.min.js',
+            'vendor/redactor/plugins/widget.min.js',
             'redactor/admin-redactor.js',
         )
