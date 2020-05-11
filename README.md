@@ -27,6 +27,7 @@ It will allow to use redactor inside the django admin interface.
     vendor/redactor/redactor.min.js
     vendor/redactor/plugins/imagemanager.min.js
     vendor/redactor/plugins/video.min.js
+    vendor/redactor/plugins/widget.min.js
 ```
 
 5. Add to the admin.py the redactor support for a given model:
