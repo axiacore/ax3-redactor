@@ -9,8 +9,7 @@ from django.views.generic import View
 
 from ax3_model_extras.webp import generate_webp
 
-import magic
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 from .models import RedactorFile
 
@@ -31,8 +30,7 @@ class RedactorView(UserPassesTestMixin, View):
         count = 0
         images = {}
         for file in request.FILES.getlist('file[]'):
-            mime = magic.from_buffer(file.read(), mime=True)
-            if mime.startswith('image'):
+            try:
                 output_image = Image.open(file)
                 img_format = output_image.format
                 if output_image.format == 'JPEG':
@@ -47,7 +45,7 @@ class RedactorView(UserPassesTestMixin, View):
                     is_image=True,
                 )
                 generate_webp(image_field=obj.file)
-            else:
+            except UnidentifiedImageError:
                 obj = RedactorFile.objects.create(file=file, name=file.name, is_image=False)
 
             images['file-{}'.format(count)] = {'url': obj.file.url, 'name': obj.name, 'id': obj.id}
