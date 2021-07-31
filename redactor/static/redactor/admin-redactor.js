@@ -4,6 +4,8 @@ django.jQuery(() => {
         plugins: ['imagemanager', 'video', 'widget'],
         fileUpload: '/redactor/file/',
         imageUpload: '/redactor/file/',
-        imageManagerJson: '/redactor/file/'
+        imageManagerJson: '/redactor/file/',
+        imageResizable: true,
+        imagePosition: true
     });
 });
