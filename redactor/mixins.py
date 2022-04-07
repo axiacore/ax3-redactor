@@ -1,8 +1,13 @@
 class RedactorMixin:
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
+
         for field in self.redactor_fields:
             form.base_fields[field].widget.attrs['enable-redactor'] = True
+
+        for field in self.basic_redactor_fields:
+            form.base_fields[field].widget.attrs['enable-basic-redactor'] = True
+        
         return form
 
     class Media:
