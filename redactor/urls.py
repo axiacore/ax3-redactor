@@ -4,6 +4,4 @@ from .views import RedactorView
 
 app_name = 'redactor'
 
-urlpatterns = [
-    path('redactor/file/', RedactorView.as_view(), name='redactor_file')
-]
+urlpatterns = [path('redactor/file/', RedactorView.as_view(), name='redactor_file')]

@@ -1,6 +1,5 @@
+from ax3_model_extras.storages import get_storage, get_upload_path
 from django.db import models
-
-from ax3_model_extras.storages import get_upload_path, get_storage
 
 
 class RedactorFile(models.Model):

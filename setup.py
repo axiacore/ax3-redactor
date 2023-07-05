@@ -1,8 +1,8 @@
 import setuptools
 
-__VERSION__ = '1.1.2'
+__VERSION__ = '2.0.0'
 
-with open('README.md', 'r') as fh:
+with open('README.md') as fh:
     long_description = fh.read()
 
 setuptools.setup(
@@ -15,7 +15,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     url='https://github.com/Axiacore/ax3-redactor',
     packages=setuptools.find_packages(),
-    install_requires=['ax3-model-extras>=1.2.4'],
+    install_requires=['ax3-model-extras>=2.0.0'],
     include_package_data=True,
     zip_safe=False,  # because we're including static files
     classifiers=[

@@ -1,6 +1,5 @@
 from io import BytesIO
 
-from ax3_model_extras.webp import generate_webp
 from django.conf import settings
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -19,11 +18,14 @@ class RedactorView(UserPassesTestMixin, View):
         return self.request.user.is_authenticated and self.request.user.is_staff
 
     def get(self, request, *args, **kwargs):
-        return JsonResponse([
-            {
-                'thumb': obj.file.url, 'url': obj.file.url, 'id': obj.id, 'title': obj.name
-            } for obj in RedactorFile.objects.filter(is_image=True)[:20]
-        ], safe=False)
+        return JsonResponse(
+            [
+                {
+                    'thumb': obj.file.url, 'url': obj.file.url, 'id': obj.id, 'title': obj.name
+                } for obj in RedactorFile.objects.filter(is_image=True)[:20]
+            ],
+            safe=False
+        )
 
     def post(self, request, *args, **kwargs):
         count = 0
@@ -47,11 +49,10 @@ class RedactorView(UserPassesTestMixin, View):
                         name=file.name,
                         is_image=True,
                     )
-                    generate_webp(image_field=obj.file)
                 except UnidentifiedImageError:
                     obj = RedactorFile.objects.create(file=file, name=file.name, is_image=False)
 
-            images['file-{}'.format(count)] = {'url': obj.file.url, 'name': obj.name, 'id': obj.id}
+            images[f'file-{count}'] = {'url': obj.file.url, 'name': obj.name, 'id': obj.id}
             count += 1
 
         return JsonResponse(images, safe=False)

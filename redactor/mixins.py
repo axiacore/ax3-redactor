@@ -12,15 +12,15 @@ class RedactorMixin:
 
     class Media:
         css = {
-            'all': (
+            'all': [
                 'vendor/redactor/redactor.min.css',
                 'redactor/admin-redactor.css',
-            )
+            ]
         }
-        js = (
+        js = [
             'vendor/redactor/redactor.min.js',
             'vendor/redactor/plugins/imagemanager.min.js',
             'vendor/redactor/plugins/video.min.js',
             'vendor/redactor/plugins/widget.min.js',
             'redactor/admin-redactor.js',
-        )
+        ]
