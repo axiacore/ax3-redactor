@@ -1,4 +1,0 @@
-include LICENSE
-include README.rst
-recursive-include redactor/static *
-recursive-include redactor/templates *
